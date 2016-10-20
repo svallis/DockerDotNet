@@ -8,7 +8,7 @@ namespace DockerDotNet.Controllers
 {
     public class HomeController : Controller
     {
-		[Route("/")]
+        [Route("/")]
         public IActionResult Index()
         {
             return View();
