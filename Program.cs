@@ -25,7 +25,7 @@ namespace ConsoleApplication
 		{
 			app.Run(context =>
 			{
-				return context.Response.WriteAsync(string.Format("<h1>Polynomial</h1><p>Hello from ASP.NET Core and Docker!</p><p>It is currently: {0}</p>", DateTime.Now));
+				return context.Response.WriteAsync(string.Format("<h1>Polynomial</h1><hr><p>Hello from ASP.NET Core and Docker!</p><p>It is currently: {0}</p>", DateTime.Now));
 			});
 		}
 	}
