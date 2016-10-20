@@ -1,9 +1,11 @@
 FROM microsoft/dotnet:latest
 ENV ProjectName DockerDotNet
+WORKDIR /tmp/$ProjectName/
+COPY project.json /tmp/$ProjectName/
+RUN dotnet restore
 COPY . /tmp/$ProjectName/
-RUN cd /tmp/$ProjectName/ && dotnet restore && \
-    cd /tmp/$ProjectName/ && dotnet publish -c Release && \
-    cp -ar /tmp/$ProjectName/bin/Release/netcoreapp1.0/publish/. /root/ && \
+RUN dotnet publish -c Release && \
+    cp -ar /tmp/$ProjectName/bin/Release/netcoreapp1.0/publish/. /app/ && \
     rm -rf /tmp/$ProjectName/
 EXPOSE 5000/tcp
-ENTRYPOINT dotnet /root/$ProjectName.dll
+ENTRYPOINT dotnet /app/$ProjectName.dll
