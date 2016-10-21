@@ -1,4 +1,7 @@
-FROM microsoft/dotnet:latest
+FROM microsoft/dotnet:latest  
+ENV LANG en_GB.UTF-8  
+ENV LANGUAGE en_GB:en  
+ENV LC_ALL en_GB.UTF-8
 ENV ProjectName DockerDotNet
 WORKDIR /tmp/$ProjectName/
 COPY src/$ProjectName/project.json /tmp/$ProjectName/
